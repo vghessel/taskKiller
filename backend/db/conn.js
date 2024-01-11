@@ -6,7 +6,7 @@ async function main() {
         mongoose.set("strictQuery", true);
 
         await mongoose.connect(
-            "mongodb+srv://vgerlachhessel:<password>@cluster7.tjnxkvv.mongodb.net/?retryWrites=true&w=majority"
+            "mongodb+srv://vgerlachhessel:Y8rFT8ZCva0q6M1l@cluster7.tjnxkvv.mongodb.net/?retryWrites=true&w=majority"
         );
         console.log("Connected to database")
     } catch (error) {

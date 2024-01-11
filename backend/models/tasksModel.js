@@ -11,10 +11,6 @@ const tasksSchema = new Schema({
         type: String,
         required: false
     },
-    date: {
-        type: Date,
-        required: true
-    },
     status: {
         type: Boolean,
         required: true
