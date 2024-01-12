@@ -1,3 +1,10 @@
+GET http://localhost:3000/api/tasks
+Content-Type: application/json
+
+###
+GET http://localhost:3000/api/tasks/65a09bd381aec7f7bbffebfa
+
+###
 POST http://localhost:3000/api/tasks
 Content-Type: application/json
 
@@ -6,3 +13,17 @@ Content-Type: application/json
     "description": "projeto da faculdade",
     "status": false
 }
+
+###
+PUT http://localhost:3000/api/tasks/65a09bd381aec7f7bbffebfa
+Content-Type: application/json
+
+{
+    "title": "fazer projetos",
+    "description": "projeto da faculdade",
+    "status": false
+}
+
+
+###
+DELETE http://localhost:3000/api/tasks/65a0649ad2815b62c3a25d1a
