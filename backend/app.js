@@ -1,6 +1,8 @@
 const express = require("express");
 const cors = require("cors");
-
+const authRoutes = require("./routes/auth");
+const { authenticate } = require("./middleware/authMiddleware");
+const routes = require("./routes/router");
 const app = express();
 
 app.use(cors());
@@ -10,11 +12,12 @@ app.use(express.json());
 const conn = require("./db/conn");
 conn();
 
-// Routes
+// Public Routes
+app.use(authRoutes);
 
-const routes = require("./routes/router");
 
-app.use("/api", routes);
+// Private Routes
+app.use("/api", authenticate, routes);
 
 app.listen(3000, function() {
     console.log("Server running...");
