@@ -2,6 +2,8 @@ const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
 
+const { listsSchema } = require("./listsModel");
+
 const tasksSchema = new Schema({
     title: {
         type: String,
@@ -15,9 +17,14 @@ const tasksSchema = new Schema({
         type: Boolean,
         required: true
     },
+    list: {
+        type: listsSchema,
+        required: true
+    },
+
 }, {timestamps: true});
 
-const tasksModel = mongoose.model("listModel", tasksSchema);
+const tasksModel = mongoose.model("tasksModel", tasksSchema);
 
 module.exports = {
     tasksModel,

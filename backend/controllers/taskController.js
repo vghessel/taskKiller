@@ -1,13 +1,22 @@
 const { tasksModel } = require("../models/tasksModel");
+const { listsModel, listsSchema } = require("../models/listsModel");
 
 const taskController = {
 
     create: async(req, res) => {
         try {
+            const listName = req.body.list.name;
+            const existingList = await listsModel.findOne({ name: listName });
+
+            if (!existingList) {
+                return res.status(400).json({ msg: "A lista especificada não existe." });
+            }
+
             const task = {
                 title: req.body.title,
                 description: req.body.description,
                 status: req.body.status,
+                list: existingList,
             };
 
             const response = await tasksModel.create(task);
@@ -15,6 +24,7 @@ const taskController = {
 
         } catch (error) {
             console.log(error);
+            res.status(500).json({ msg: "Erro interno do servidor." });
         }
     },
     getAll: async(req, res) => {
@@ -24,6 +34,7 @@ const taskController = {
 
         } catch (error) {
             console.log(error);
+            res.status(500).json({ msg: "Erro interno do servidor." });
         }
     },
     get: async(req, res) => {
@@ -40,6 +51,7 @@ const taskController = {
 
         } catch (error) {
             console.log(error);
+            res.status(500).json({ msg: "Erro interno do servidor." });
         }
     },
     delete: async(req, res) => {
@@ -57,6 +69,7 @@ const taskController = {
 
         } catch (error) {
             console.log(error);
+            res.status(500).json({ msg: "Erro interno do servidor." });
         }
     },
     update: async(req, res) => {
@@ -69,9 +82,9 @@ const taskController = {
                 status: req.body.status,
             };
             
-            const updatedService = await tasksModel.findByIdAndUpdate(id, task);
+            const updatedTask = await tasksModel.findByIdAndUpdate(id, task);
 
-            if(!updatedService) {
+            if(!updatedTask) {
                 res.status(404).json({msg: "Tarefa não encontrada"});
                 return;
             }
@@ -80,6 +93,7 @@ const taskController = {
 
         } catch (error) {
             console.log(error);
+            res.status(500).json({ msg: "Erro interno do servidor." });
         }
     }
 };

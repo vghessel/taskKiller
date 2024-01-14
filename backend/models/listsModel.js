@@ -9,11 +9,11 @@ const listsSchema = new Schema({
         type: String,
         required: true,
     },
-    tasks: {
-        type: [tasksSchema],
-    },
 }, {timestamps: true});
 
 const listsModel = mongoose.model("listsModel", listsSchema);
 
-module.exports = listsModel;
+module.exports = {
+    listsModel,
+    listsSchema,
+};
