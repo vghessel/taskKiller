@@ -15,27 +15,40 @@
 
 ***Documentação da API:***
 
-Para ver a documentação da API é só acessar o endpoint **/api-docs** que o arquivo swagger.yml na base do projeto será mostrado localmente no padrão do Swagger Editor. 
+Para ver a documentação da API é só acessar o endpoint **/api-docs** que o arquivo swagger.yml na base do projeto será mostrado localmente no padrão do Swagger Editor.
+
 Se não estiver com o projeto rodando pode fazer o upload do arquivo swagger.yml em editor.swagger.io/
 
 
 ***Rodando a aplicação:***
 1. Clone o repositório:
 
-```git clone https://github.com/vghessel/taskKiller.git```
-```cd taskKiller```
+```bash
+git clone https://github.com/vghessel/taskKiller.git
+```
+
+```bash
+cd taskKiller
+```
 
 2. Instale as dependências:
 
-```cd backend && npm install```
+```bash
+cd backend && npm install
+```
 
 3. Configure suas credenciais do MongoDB Atlas no arquivo db/conn.js:
+
 <sub>Neste caso é necessário ter acesso ao MongoDB Atlas que é um Cluster gratuíto na Cloud do MongoDB</sub>
 
 4. Inicialize o servidor:
-```cd backend && npm start```
+
+```bash
+cd backend && npm start
+```
 
 ***Testando a aplicação:***
+
 Além de testar utilizando o Postman em conjunto com a documentação Swagger, é possível utilizar o arquivo request.rest com a extensao REST Client no VSCode para fazer as requisições ao banco de dados.
 
 ---
