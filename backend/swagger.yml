@@ -1,0 +1,187 @@
+openapi: 3.0.0
+info:
+  title: To-Do List API
+  description: API para gerenciar tarefas e listas
+  version: 1.0.0
+
+paths:
+  /api/tasks:
+    get:
+      summary: Obter todas as tarefas
+      security:
+        - TokenJWT: []
+
+    post:
+      summary: Criar uma nova tarefa
+      security:
+        - TokenJWT: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Task'
+
+  /api/tasks/{taskId}:
+    get:
+      summary: Obter uma tarefa por ID
+      security:
+        - TokenJWT: []
+      parameters:
+        - $ref: '#/components/parameters/taskId'
+
+    put:
+      summary: Atualizar uma tarefa por ID
+      security:
+        - TokenJWT: []
+      parameters:
+        - $ref: '#/components/parameters/taskId'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaskUpdate'
+
+    delete:
+      summary: Excluir uma tarefa por ID
+      security:
+        - TokenJWT: []
+      parameters:
+        - $ref: '#/components/parameters/taskId'
+
+  /api/lists:
+    get:
+      summary: Obter todas as listas
+      security:
+        - TokenJWT: []
+
+    post:
+      summary: Criar uma nova lista
+      security:
+        - TokenJWT: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/List'
+
+  /api/lists/{listId}:
+    get:
+      summary: Obter uma lista por ID
+      security:
+        - TokenJWT: []
+      parameters:
+        - $ref: '#/components/parameters/listId'
+
+    put:
+      summary: Atualizar uma lista por ID
+      security:
+        - TokenJWT: []
+      parameters:
+        - $ref: '#/components/parameters/listId'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListUpdate'
+
+    delete:
+      summary: Excluir uma lista por ID
+      security:
+        - TokenJWT: []
+      parameters:
+        - $ref: '#/components/parameters/listId'
+
+  /api/signup:
+    post:
+      summary: Criar um novo usuário
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserSignup'
+
+  /api/login:
+    post:
+      summary: Autenticar um usuário
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserLogin'
+
+components:
+  schemas:
+    Task:
+      type: object
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        status:
+          type: boolean
+        list:
+          type: object
+          properties:
+            name:
+              type: string
+
+    TaskUpdate:
+      type: object
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        status:
+          type: boolean
+
+    List:
+      type: object
+      properties:
+        name:
+          type: string
+
+    ListUpdate:
+      type: object
+      properties:
+        name:
+          type: string
+
+    UserSignup:
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+
+    UserLogin:
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+
+  parameters:
+    taskId:
+      name: taskId
+      in: path
+      required: true
+      schema:
+        type: string
+      description: ID da tarefa
+
+    listId:
+      name: listId
+      in: path
+      required: true
+      schema:
+        type: string
+      description: ID da lista
+
+  securitySchemes:
+    TokenJWT:
+      type: http
+      scheme: bearer
