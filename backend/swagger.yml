@@ -28,6 +28,13 @@ paths:
         - tarefas
       summary: Obter todas as tarefas
       description: Obtenha todas as tarefas sem filtro por ID
+      parameters:
+        - name: JWT
+          in: header
+          description: 'Json Web Token'
+          required: true
+          schema:
+            type: string
       responses:
         '200':
           description: Operação efetuada com sucesso!
@@ -43,18 +50,25 @@ paths:
         - tarefas
       summary: Criar tarefa
       description: Crie uma tarefa enviando as informações necessárias
+      parameters:
+        - name: JWT
+          in: header
+          description: 'Json Web Token'
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Order'
+              $ref: '#/components/schemas/TarefaPost'
       responses:
         '200':
           description: Operação realizada com sucesso!
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Order'
+                $ref: '#/components/schemas/TarefaPost'
         '400':
           description: Invalid input
   /api/tasks/{taskId}:
@@ -71,13 +85,19 @@ paths:
           schema:
             type: integer
             format: int64
+        - name: JWT
+          in: header
+          description: 'Json Web Token'
+          required: true
+          schema:
+            type: string
       responses:
         '200':
           description: Operação efetuada com sucesso!
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Pet'          
+                $ref: '#/components/schemas/TarefaPost'          
         '400':
           description: ID inválido
         '404':
@@ -95,19 +115,25 @@ paths:
           schema:
             type: integer
             format: int64
+        - name: JWT
+          in: header
+          description: 'Json Web Token'
+          required: true
+          schema:
+            type: string
       requestBody:
         description: Atualize uma tarefa já existente dentro de uma lista
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Pet'
+              $ref: '#/components/schemas/TarefaPut'
       responses:
         '200':
           description: Operação efetuada com sucesso!
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Pet'          
+                $ref: '#/components/schemas/TarefaPut'          
         '400':
           description: ID inválido
         '404':
@@ -125,13 +151,19 @@ paths:
           schema:
             type: integer
             format: int64
+        - name: JWT
+          in: header
+          description: 'Json Web Token'
+          required: true
+          schema:
+            type: string
       responses:
         '200':
           description: Tarefa excluída com sucesso!
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Pet'          
+                $ref: '#/components/schemas/TarefaPost'          
         '400':
           description: ID inválido
         '404':
@@ -141,7 +173,14 @@ paths:
       tags:
         - listas
       summary: Obter todas as listas de tarefas
-      description: Obtenha todas as listas sem filtro por ID
+      description: Obtenha todas as listas sem filtro por I
+      parameters:
+        - name: JWT
+          in: header
+          description: 'Json Web Token'
+          required: true
+          schema:
+            type: string
       responses:
         '200':
           description: Operação efetuada com sucesso!
@@ -157,18 +196,25 @@ paths:
         - listas
       summary: Criar lista
       description: Crie uma lista enviando as informações necessárias
+      parameters:
+        - name: JWT
+          in: header
+          description: 'Json Web Token'
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Order'
+              $ref: '#/components/schemas/ListaPostPut'
       responses:
         '200':
           description: Operação realizada com sucesso!
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Order'
+                $ref: '#/components/schemas/ListaPostPut'
         '400':
           description: Invalid input
   /api/lists/{listId}:
@@ -185,13 +231,19 @@ paths:
           schema:
             type: integer
             format: int64
+        - name: JWT
+          in: header
+          description: 'Json Web Token'
+          required: true
+          schema:
+            type: string
       responses:
         '200':
           description: Operação efetuada com sucesso!
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Pet'          
+                $ref: '#/components/schemas/TarefaPost'          
         '400':
           description: ID inválido
         '404':
@@ -209,19 +261,25 @@ paths:
           schema:
             type: integer
             format: int64
+        - name: JWT
+          in: header
+          description: 'Json Web Token'
+          required: true
+          schema:
+            type: string
       requestBody:
         description: Atualize uma lista já existente
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Pet'
+              $ref: '#/components/schemas/ListaPostPut'
       responses:
         '200':
           description: Operação efetuada com sucesso!
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Pet'          
+                $ref: '#/components/schemas/ListaPostPut'          
         '400':
           description: ID inválido
         '404':
@@ -239,215 +297,110 @@ paths:
           schema:
             type: integer
             format: int64
+        - name: JWT
+          in: header
+          description: 'Json Web Token'
+          required: true
+          schema:
+            type: string
       responses:
         '200':
           description: Lista excluída com sucesso!
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Pet'          
+                $ref: '#/components/schemas/TarefaPost'          
         '400':
           description: ID inválido
         '404':
           description: Lista não encontrada
   /api/signup:
     post:
-          tags:
-            - usuários
-          summary: Criar um usuário
-          description: Crie um novo usuário
-          requestBody:
-            content:
-              application/json:
-                schema:
-                  $ref: '#/components/schemas/Order'
-          responses:
-            '200':
-              description: Usuário cadastrado com sucesso!
-              content:
-                application/json:
-                  schema:
-                    $ref: '#/components/schemas/Order'
-            '400':
-              description: Invalid input
+      tags:
+        - usuários
+      summary: Criar um usuário
+      description: Crie um novo usuário
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UsuarioLoginSignup'
+      responses:
+        '200':
+          description: Usuário cadastrado com sucesso!
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UsuarioLoginSignup'
+        '400':
+          description: Invalid input
   /api/login:
     post:
-          tags:
-            - usuários
-          summary: Fça login com um usuário
-          description: Faça login com um usuário
-          requestBody:
-            content:
-              application/json:
-                schema:
-                  $ref: '#/components/schemas/Order'
-          responses:
-            '200':
-              description: Login bem-sucedido!
-              content:
-                application/json:
-                  schema:
-                    $ref: '#/components/schemas/Order'
-            '401':
-              description: Credenciais inválidas
-            '400':
-              description: Invalid input
+      tags:
+        - usuários
+      summary: Fça login com um usuário
+      description: Faça login com um usuário
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UsuarioLoginSignup'
+      responses:
+        '200':
+          description: Login bem-sucedido!
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UsuarioLoginSignup'
+        '401':
+          description: Credenciais inválidas
+        '400':
+          description: Invalid input
 components:
   schemas:
-    Order:
+    TarefaPost:
       type: object
       properties:
-        id:
-          type: integer
-          format: int64
-          example: 10
-        petId:
-          type: integer
-          format: int64
-          example: 198772
-        quantity:
-          type: integer
-          format: int32
-          example: 7
-        shipDate:
+        title:
           type: string
-          format: date-time
+          example: Criar um novo projeto
+        description:
+          type: string
+          example: Criar um projeto para divulgar nas redes sociais
         status:
-          type: string
-          description: Order Status
-          example: approved
-          enum:
-            - placed
-            - approved
-            - delivered
-        complete:
           type: boolean
-      xml:
-        name: order
-    Address:
+          example: false
+        list:
+          type: object
+          properties:
+            name:
+              type: string
+              example: Planos 2024
+    TarefaPut:
       type: object
       properties:
-        street:
+        title:
           type: string
-          example: 437 Lytton
-        city:
+          example: Criar um novo projeto
+        description:
           type: string
-          example: Palo Alto
-        state:
-          type: string
-          example: CA
-        zip:
-          type: string
-          example: '94301'
-      xml:
-        name: address
-    Category:
+          example: Criar um projeto para divulgar nas redes sociais
+        status:
+          type: boolean
+          example: false
+      
+    ListaPostPut:
       type: object
       properties:
-        id:
-          type: integer
-          format: int64
-          example: 1
         name:
           type: string
-          example: Dogs
-      xml:
-        name: category
-    User:
+          example: Planos 2024
+    UsuarioLoginSignup:
       type: object
       properties:
-        id:
-          type: integer
-          format: int64
-          example: 10
         username:
           type: string
-          example: theUser
-        firstName:
-          type: string
-          example: John
-        lastName:
-          type: string
-          example: James
-        email:
-          type: string
-          example: john@email.com
+          example: vhessel
         password:
           type: string
-          example: '12345'
-        phone:
-          type: string
-          example: '12345'
-        userStatus:
-          type: integer
-          description: User Status
-          format: int32
-          example: 1
-      xml:
-        name: user
-    Tag:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-      xml:
-        name: tag
-    Pet:
-      required:
-        - name
-        - photoUrls
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-          example: 10
-        name:
-          type: string
-          example: doggie
-        category:
-          $ref: '#/components/schemas/Category'
-        photoUrls:
-          type: array
-          xml:
-            wrapped: true
-          items:
-            type: string
-            xml:
-              name: photoUrl
-        tags:
-          type: array
-          xml:
-            wrapped: true
-          items:
-            $ref: '#/components/schemas/Tag'
-        status:
-          type: string
-          description: pet status in the store
-          enum:
-            - available
-            - pending
-            - sold
-      xml:
-        name: pet
-  requestBodies:
-    Pet:
-      description: Pet object that needs to be added to the store
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Pet'
-        application/xml:
-          schema:
-            $ref: '#/components/schemas/Pet'
-    UserArray:
-      description: List of user object
-      content:
-        application/json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/User'
+          example: 1234
