@@ -37,9 +37,13 @@ cd taskKiller
 cd backend && npm install
 ```
 
-3. Configure suas credenciais do MongoDB Atlas no arquivo db/conn.js:
+3. Crie e configure suas credenciais do MongoDB Atlas no arquivo backend/.env:
 
 <sub>Neste caso é necessário ter acesso ao MongoDB Atlas que é um Cluster gratuíto na Cloud do MongoDB</sub>
+
+```bash
+MONGODB_URI=mongodb+srv://<username>:<password>@cluster7.tjnxkvv.mongodb.net/?retryWrites=true&w=majority
+```
 
 4. Inicialize o servidor:
 
