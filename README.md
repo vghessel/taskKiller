@@ -11,7 +11,7 @@
 * Express
 * MongoDB
 * Json Web Token (JWT)
-* Mocha (Unit Tests)
+* Mocha, Chai e Supertest (Unit Tests)
 
 ***Documentação da API:***
 
