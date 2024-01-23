@@ -53,7 +53,17 @@ cd backend && npm start
 
 ***Testando a aplicação:***
 
+<sub>**Teste manual:**</sub>
+
 Além de testar utilizando o Postman em conjunto com a documentação Swagger, é possível utilizar o arquivo request.rest com a extensao REST Client no VSCode para fazer as requisições ao banco de dados.
+
+<sub>**Testes unitários:**</sub>
+
+Mocha, Chai e Supertest serão responsáveis por esses testes, para isso rode:
+
+```bash
+    npm test
+```
 
 ---
 ## Frontend
