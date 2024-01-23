@@ -62,7 +62,7 @@ Além de testar utilizando o Postman em conjunto com a documentação Swagger, �
 Mocha, Chai e Supertest serão responsáveis por esses testes, para isso rode:
 
 ```bash
-    npm test
+npm test
 ```
 
 ---
