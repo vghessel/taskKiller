@@ -1,13 +1,12 @@
 const mongoose = require("mongoose");
+require("dotenv").config();
 
 async function main() {
     try {
 
         mongoose.set("strictQuery", true);
 
-        await mongoose.connect(
-            "mongodb+srv://vgerlachhessel:<password>@cluster7.tjnxkvv.mongodb.net/?retryWrites=true&w=majority"
-        );
+        await mongoose.connect(process.env.MONGODB_URI);
         console.log("Connected to database")
     } catch (error) {
         console.log(`Erro: ${error}`);
