@@ -17,7 +17,7 @@
 
 Para ver a documentação da API é só acessar o endpoint **/api-docs** que o arquivo swagger.yml será mostrado localmente no padrão do Swagger Editor.
 
-![Swagger UI](img/swagger.jpg)
+![Swagger UI](backend/img/swagger.png)
 
 Se não estiver com o projeto rodando pode fazer o upload do arquivo [swagger.yml](backend/swagger.yml) em [editor.swagger.io](https://editor.swagger.io/)
 
