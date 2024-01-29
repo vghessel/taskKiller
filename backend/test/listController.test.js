@@ -1,8 +1,9 @@
-const chai = require('chai');
-const expect = chai.expect;
+const chai = require('fix-esm').require('chai');
 const supertest = require('supertest');
 const app = require('../app'); // Importar app
-const { listsModel } = require("../src/models/listsModel");
+const { listsModel } = require("../models/listsModel");
+
+var expect = chai.expect;
 
 describe('List Controller', () => {
   // Teste para a rota de criação

@@ -28,3 +28,5 @@ app.use("/api", authenticate, routes);
 app.listen(3000, function() {
     console.log("Server running...");
 });
+
+module.exports = app;

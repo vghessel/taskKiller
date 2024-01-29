@@ -19,7 +19,7 @@ Para ver a documentação da API é só acessar o endpoint **/api-docs** que o a
 
 ![Swagger UI](backend/img/swagger.png)
 
-Se não estiver com o projeto rodando pode fazer o upload do arquivo [swagger.yml](backend/swagger.yml) em [editor.swagger.io](https://editor.swagger.io/)
+Se não estiver com o projeto, rodando pode fazer o upload do arquivo [swagger.yml](backend/swagger.yml) em [editor.swagger.io](https://editor.swagger.io/)
 
 
 ***Rodando a aplicação:***
@@ -73,11 +73,17 @@ npm test
 ***Tecnologias utilizadas:***
 * JavaScript
 * React
+* Redux
+* Iodash
+* Material UI
 
 
 ***Rodando a aplicação:***
 1. Clone o repositório:
 
+```bash
+git clone https://github.com/vghessel/taskKiller.git
+```
 
 2. Instale as dependências:
     
