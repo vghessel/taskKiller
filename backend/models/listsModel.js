@@ -2,8 +2,6 @@ const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
 
-const { tasksSchema } = require("./tasksModel");
-
 const listsSchema = new Schema({
     name: {
         type: String,
