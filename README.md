@@ -17,7 +17,7 @@
 
 Para ver a documentação da API é só acessar o endpoint **/api-docs** que o arquivo swagger.yml será mostrado localmente no padrão do Swagger Editor.
 
-![Swagger UI](backend/img/swagger.png)
+![Swagger UI](img/swagger.png)
 
 Se não estiver com o projeto, rodando pode fazer o upload do arquivo [swagger.yml](backend/swagger.yml) em [editor.swagger.io](https://editor.swagger.io/)
 
@@ -85,8 +85,18 @@ npm test
 git clone https://github.com/vghessel/taskKiller.git
 ```
 
+```bash
+cd taskKiller
+```
+
 2. Instale as dependências:
-    
 
-3. Inicialize o servidor:
+```bash
+cd gui && yarn install
+```
 
+3. Inicialize a aplicação:
+
+```bash
+yarn start
+```
