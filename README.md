@@ -1,4 +1,4 @@
-# Task Killer
+![Task Killer Logo](img/Task_Killer.png)
 
 **Uma To-Do List que simplifica sua vida: leve, fácil e eficiente. Organize suas tarefas com elegância, sem complicações.**
 
