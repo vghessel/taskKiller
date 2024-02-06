@@ -22,7 +22,7 @@ Para ver a documentação da API é só acessar o endpoint **/api-docs** que o a
 
 ![Swagger UI](img/swagger.png)
 
-Se não estiver com o projeto, rodando pode fazer o upload do arquivo [swagger.yml](backend/swagger.yml) em [editor.swagger.io](https://editor.swagger.io/)
+Caso não esteja rodando o projeto, é possível fazer o upload do arquivo [swagger.yml](backend/swagger.yml) em [editor.swagger.io](https://editor.swagger.io/)
 
 
 ***Rodando a aplicação:***
