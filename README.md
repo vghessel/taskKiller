@@ -1,4 +1,7 @@
-![Task Killer Logo](img/Task_Killer.png)
+<p align="center">
+  <img src="img/Task_Killer.png" alt="Task Killer Logo">
+</p>
+
 
 **Uma To-Do List que simplifica sua vida: leve, fácil e eficiente. Organize suas tarefas com elegância, sem complicações.**
 
