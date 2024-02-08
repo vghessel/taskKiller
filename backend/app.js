@@ -10,7 +10,7 @@ const app = express();
 app.use(express.json());
 
 // React Integration
-var allowedOrigins = ['http://localhost:5173'];
+var allowedOrigins = ['http://34.16.148.5','http://taskkiller.ddns.net'];
 
 app.use(cors({
   credentials: true,

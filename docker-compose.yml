@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  backend:
+    image: backend:v2
+    container_name: backend
+    restart: always
+    # network_mode: "host"
+    ports:
+      - "3000:3000"
+  web:
+    image: gui:v2
+    container_name: gui
+    restart: always
+    # network_mode: "host"
+    depends_on:
+      - backend
+    ports:
+      - "80:80"
+    environment:
+        NGINX_HOST: "gui"
+        NGINX_PORT: "5173"
