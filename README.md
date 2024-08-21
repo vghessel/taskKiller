@@ -14,6 +14,9 @@
 * Express
 * MongoDB
 * Json Web Token (JWT)
+* Docker
+* Nginx
+* Google Cloud Platform
 * Mocha, Chai e Supertest (Unit Tests)
 
 ***Documentação da API:***
