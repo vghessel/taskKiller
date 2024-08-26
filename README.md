@@ -16,7 +16,7 @@
 * Json Web Token (JWT)
 * Docker
 * Nginx
-* Google Cloud Platform (GCP)
+* Google Cloud Platform
 * Mocha, Chai e Supertest (Unit Tests)
 
 ***Documentação da API:***
